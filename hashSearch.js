@@ -70,33 +70,33 @@ const test1 = [3, 69,  9, 32, 76, 21, 66, 63,
     6
 ]
 
-// Создаем хеш-таблицу размером 100
-console.time("Test 1")
-
+// Создаем хеш-таблицу размером 25
 const hashTable1 = new HashTable(25);
 
 // Вставляем все числа из массива в хеш-таблицу
 test1.forEach(num => hashTable1.insert(num));
 
+console.time("Test 1")
 console.log(`\n\nТест 1\nВыборка: ${test1}\nПоиск числа 20: ${hashTable1.search(20)}\nПоиск числа 37: ${hashTable1.search(37)}`);
 console.timeEnd("Test 1")
 
 // -------------- Тест для последовательных чисел
 const test2 = generateArray(100000);
-console.time("Test 2")
 const hashTable2 = new HashTable(1024);
 test2.forEach(num => hashTable2.insert(num));
+console.time("Test 2")
 console.log(`\n\nТест 2\nВыборка: 1...1000\nПоиск числа 100001: ${hashTable2.search(100001)}\nПоиск числа 2020: ${hashTable2.search(2020)}`);
 console.timeEnd("Test 2")
 
 // --------------- Тест для произвольного массива
 const test3 = generateRandomArray(10);
-console.time("Test 1")
 const hashTable3 = new HashTable(10);
 test3.forEach(num => hashTable3.insert(num));
 searchNums = generateRandomArray(2);
+
+console.time("Test 3")
 console.log(`\n\nТест 3\nВыборка: ${test3}\nПоиск числа ${searchNums[0]}: ${hashTable3.search(searchNums[0])}\nПоиск числа ${searchNums[1]}: ${hashTable3.search(searchNums[1])}`);
-console.timeEnd("Test 1")
+console.timeEnd("Test 3")
 
 console.log(`\n\nХэш таблица для теста 1:`);
 hashTable1.printTable()
